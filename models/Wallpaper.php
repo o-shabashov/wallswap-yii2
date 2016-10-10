@@ -2,15 +2,13 @@
 
 namespace app\models;
 
-use Yii;
 use yii\helpers\Url;
 
 /**
  * This is the model class for table "wallpaper".
- *
  * @property integer $id
- * @property string $purity
- * @property string $url
+ * @property string  $thumb_url
+ * @property string  $url
  */
 class Wallpaper extends \yii\db\ActiveRecord
 {
@@ -28,8 +26,8 @@ class Wallpaper extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['purity'], 'string'],
-            [['url'], 'string', 'max' => 255],
+            [['url', 'thumb_url'], 'required'],
+            [['url', 'thumb_url'], 'string', 'max' => 255],
         ];
     }
 
@@ -39,9 +37,9 @@ class Wallpaper extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'purity' => 'Purity',
-            'url' => 'Url',
+            'id'        => 'ID',
+            'url'       => 'Url',
+            'thumb_url' => 'Thumbnail Url',
         ];
     }
 

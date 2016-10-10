@@ -28,12 +28,4 @@ class WallpaperQuery extends \yii\db\ActiveQuery
     {
         return parent::one($db);
     }
-
-    /**
-     * @return $this ActiveQuery
-     */
-    public function withoutNSFW()
-    {
-        return $this->andWhere(['is_nsfw' => 1]);
-    }
 }

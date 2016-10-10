@@ -2,9 +2,11 @@
 namespace app\controllers;
 
 use app\models\User;
+use app\models\Wallpaper;
 use Kunnu\Dropbox\Dropbox;
 use Kunnu\Dropbox\DropboxApp;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
@@ -63,6 +65,11 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('index', ['authUrl' => $authUrl]);
+        return $this->render('index', [
+            'authUrl'    => $authUrl,
+            'wallpapers' => new ActiveDataProvider([
+                'query' => Wallpaper::find()
+            ])
+        ]);
     }
 }
