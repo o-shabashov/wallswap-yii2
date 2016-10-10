@@ -7,5 +7,7 @@ use app\models\Wallpaper;
  */
 ?>
 <div class="item-img-wrap img-hover">
-    <img class="img-responsive" src="<?= $model->thumb_url ?>" style="min-width: 300px"/>
+    <a href="<?= $model->url ?>" target="_blank">
+        <img class="img-responsive" src="<?= $model->thumb_url ?>" style="min-width: 300px"/>
+    </a>
 </div>
