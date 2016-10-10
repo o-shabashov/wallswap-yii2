@@ -1,6 +1,24 @@
-assets/*
-!assets/.gitignore
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
+# phpstorm project files
+.idea
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.lock
+
+# Mac DS_Store Files
+.DS_Store
+
+/web/assets
+/web/wallpapers
+
+# Config manager files
+/local
+/production
+
+# Cache tweets
+/web/twit-api/cache
+
+# Codekit
+config.codekit

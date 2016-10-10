@@ -1,0 +1,58 @@
+{
+  "name": "yiisoft/yii2-app-basic",
+  "description": "Yii 2 Basic Application Template",
+  "keywords": [
+    "yii2",
+    "framework",
+    "basic",
+    "application template"
+  ],
+  "homepage": "http://www.yiiframework.com/",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+    "forum": "http://www.yiiframework.com/forum/",
+    "wiki": "http://www.yiiframework.com/wiki/",
+    "irc": "irc://irc.freenode.net/yii",
+    "source": "https://github.com/yiisoft/yii2"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0",
+    "yiisoft/yii2": "2.0.9",
+    "yiisoft/yii2-bootstrap": "*",
+    "dropbox/dropbox-sdk": "1.1.*",
+    "creocoder/yii2-flysystem": "0.8.*",
+    "league/flysystem-dropbox": "~1.0",
+    "kunalvarma05/dropbox-php-sdk": "^0.1.2"
+  },
+  "require-dev": {
+    "yiisoft/yii2-gii": "*"
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::setPermission",
+      "yii\\composer\\Installer::generateCookieValidationKey"
+    ]
+  },
+  "config": {
+    "process-timeout": 1800
+  },
+  "extra": {
+    "writable": [
+      "runtime",
+      "web/assets"
+    ],
+    "executable": [
+      "yii"
+    ],
+    "config": [
+      "config/web.php"
+    ],
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  }
+}
