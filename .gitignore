@@ -22,3 +22,6 @@ composer.lock
 
 # Codekit
 config.codekit
+
+/config/db.php
+/config/params.php
