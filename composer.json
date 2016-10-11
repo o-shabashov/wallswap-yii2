@@ -22,8 +22,6 @@
     "php": ">=7.0",
     "yiisoft/yii2": "2.0.9",
     "yiisoft/yii2-bootstrap": "*",
-    "dropbox/dropbox-sdk": "1.1.*",
-    "creocoder/yii2-flysystem": "0.8.*",
     "league/flysystem-dropbox": "~1.0",
     "kunalvarma05/dropbox-php-sdk": "^0.1.2",
     "ivkos/wallhaven": "2.*"

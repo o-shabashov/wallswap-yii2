@@ -14,10 +14,10 @@ return [
     'bootstrap'           => ['log'],
     'controllerNamespace' => 'app\commands',
     'components'          => [
-        'cache'      => [
+        'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'log'        => [
+        'log'   => [
             'targets' => [
                 [
                     'class'  => 'yii\log\FileTarget',
@@ -25,11 +25,7 @@ return [
                 ],
             ],
         ],
-        'filesystem' => [
-            'class' => 'creocoder\flysystem\LocalFilesystem',
-            'path'  => '@web/wallpapers',
-        ],
-        'db'         => require(__DIR__ . '/db.php'),
+        'db'    => require(__DIR__ . '/db.php'),
     ],
     'params'              => require(__DIR__ . '/params.php'),
 ];

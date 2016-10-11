@@ -12,8 +12,11 @@ $this->title = Yii::t('app', 'Wallswap');
 ?>
 
 <?php if (\Yii::$app->user->isGuest): ?>
-    <a href="<?= $authUrl ?>" class="btn btn-theme btn-lg"><i class="fa fa-dropbox"></i> <?= Yii::t('app', 'Dropbox') ?>
-    </a>
+    <div align="center">
+        <a href="<?= $authUrl ?>" class="btn btn-theme btn-lg">
+            <img src="images/wallswap-02.png" alt="" width="300">
+        </a>
+    </div>
 <?php endif ?>
 
 <?php

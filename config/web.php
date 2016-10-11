@@ -71,10 +71,6 @@ $config = [
                 ],
             ],
         ],
-        'filesystem'   => [
-            'class' => 'creocoder\flysystem\LocalFilesystem',
-            'path'  => '@web/wallpapers',
-        ],
         'db'           => require(__DIR__ . '/db.php'),
     ],
     'params'     => require(__DIR__ . '/params.php'),
