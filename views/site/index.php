@@ -13,8 +13,8 @@ $this->title = Yii::t('app', 'Wallswap');
 
 <?php if (\Yii::$app->user->isGuest): ?>
     <div align="center">
-        <a href="<?= $authUrl ?>" class="btn btn-theme btn-lg">
-            <img src="images/wallswap-02.png" alt="" width="300">
+        <a href="<?= $authUrl ?>">
+            <img src="images/wallswap-02.png" alt="" width="250">
         </a>
     </div>
 <?php endif ?>
