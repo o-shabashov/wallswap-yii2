@@ -6,6 +6,7 @@ use app\models\Wallpaper;
 use Dropbox\Client;
 use Dropbox\Exception_BadResponseCode;
 use Dropbox\Exception_InvalidAccessToken;
+use Dropbox\Exception_NetworkIO;
 use Dropbox\Exception_ServerError;
 use League\Flysystem\Dropbox\DropboxAdapter;
 use League\Flysystem\Filesystem;
@@ -57,6 +58,7 @@ class ConsoleController extends Controller
             } catch (Exception_BadResponseCode $e) {
             } catch (Exception_InvalidAccessToken $e) {
             } catch (Exception_ServerError $e) {
+            } catch (Exception_NetworkIO $e) {
                 continue;
             }
             $filesystem->createDir('wallpapers');
