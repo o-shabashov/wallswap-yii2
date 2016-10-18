@@ -54,8 +54,7 @@ class SiteController extends Controller
         Yii::$app->session->open();
 
         $dropbox     = new Dropbox(new DropboxApp(Yii::$app->params['db_app_key'], Yii::$app->params['db_app_secret']));
-        $callbackUrl = Url::to(['site/auth'], true);
-        $authUrl     = $dropbox->getAuthHelper()->getAuthUrl($callbackUrl);
+        $callbackUrl = Url::to(['site/index'], true);
 
         if ($code && $state) {
             $accessToken = $dropbox->getAuthHelper()->getAccessToken($code, $state, $callbackUrl)->getToken();
@@ -65,11 +64,13 @@ class SiteController extends Controller
             }
         }
 
+        $authUrl = $dropbox->getAuthHelper()->getAuthUrl($callbackUrl);
+
         return $this->render('index', [
             'authUrl'    => $authUrl,
             'wallpapers' => new ActiveDataProvider([
-                'query' => Wallpaper::find()
-            ])
+                'query' => Wallpaper::find(),
+            ]),
         ]);
     }
 }

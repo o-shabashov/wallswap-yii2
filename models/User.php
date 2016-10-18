@@ -5,6 +5,7 @@ namespace app\models;
 use Kunnu\Dropbox\Dropbox;
 use Kunnu\Dropbox\DropboxApp;
 use Yii;
+use yii\base\Exception;
 use yii\web\IdentityInterface;
 
 /**
@@ -146,6 +147,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         }
         $user->access_token = $accessToken;
 
-        return $user->save() && $user->refresh();
+        if (!$user->save() || !$user->refresh()) {
+            throw new Exception('Error user save');
+        }
+
+        return $user;
     }
 }
