@@ -43,9 +43,6 @@ $config = [
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
                 'site'                                   => '/',
-                'search'                                 => 'site/search',
-                'sign-in'                                => 'site/sign-in',
-                'sign-up'                                => 'site/sign-up',
             ],
         ],
         'cache'        => [
