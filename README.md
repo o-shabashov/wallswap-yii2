@@ -14,8 +14,8 @@ The project is just for fun and test programming skills. It consists of two part
 3. Upload wallpapers for each user in Dropbox directory.
 
 ## Installation
-1. Create MySQL database `wallswap` and import `wallswap.sql`
-2. Create [Dropbox App](https://www.dropbox.com/developers/apps/create) and fill `config/params.php`
+* Create MySQL database `wallswap` and import `wallswap.sql`
+* Create [Dropbox App](https://www.dropbox.com/developers/apps/create) and fill `config/params.php`
 ```php
 <?php
 return [
@@ -23,25 +23,21 @@ return [
     'db_app_secret' => 'APP_SECRET_HERE',
 ];
 ```
-
-3. Redirect URL for Dropbox callback:
+* Redirect URL for Dropbox callback:
 ```
 http://localhost:8080/oauth2callback
 ```
-
-4. Install composer dependencies:
+* Install composer dependencies:
 ```bash
 composer global require "fxp/composer-asset-plugin:^1.2.0"
 cd wallswap-yii2
 composer update
 ```
-
-5. Run server:
+* Run server:
 ```bash
 ./yii serve
 ```
-
-6. Run crawl once a week:
+* Run crawl once a week:
 ```bash
 ./yii console/run
 ```
