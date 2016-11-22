@@ -8,8 +8,6 @@ use yii\helpers\Url;
  * @var string       $message
  * @var Exception    $exception
  */
-
-$this->title = $name . Yii::$app->params['titlePostfix'];
 ?>
 <section id="contact" class="section-padding">
     <div class="container">

@@ -8,7 +8,7 @@ use yii\widgets\ListView;
  * @var ActiveDataProvider $wallpapers
  */
 
-$this->title = Yii::t('app', 'Wallswap');
+$this->title = Yii::t('app', 'Yii2.Wallswap');
 ?>
 
 <?php if (\Yii::$app->user->isGuest): ?>
