@@ -43,6 +43,7 @@ $config = [
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
                 'site'                                   => '/',
+                '<alias:oauth2callback>'                 => 'site/auth',
             ],
         ],
         'cache'        => [

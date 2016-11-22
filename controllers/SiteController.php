@@ -9,7 +9,6 @@ use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\helpers\Url;
 use yii\web\Controller;
 
 /**
@@ -49,22 +48,12 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex($code = null, $state = null)
+    public function actionIndex()
     {
         Yii::$app->session->open();
 
-        $dropbox     = new Dropbox(new DropboxApp(Yii::$app->params['db_app_key'], Yii::$app->params['db_app_secret']));
-        $callbackUrl = Url::to(['site/index'], true);
-
-        if ($code && $state) {
-            $accessToken = $dropbox->getAuthHelper()->getAccessToken($code, $state, $callbackUrl)->getToken();
-
-            if ($user = User::authByDropbox($accessToken)) {
-                Yii::$app->user->login($user);
-            }
-        }
-
-        $authUrl = $dropbox->getAuthHelper()->getAuthUrl($callbackUrl);
+        $dropbox = new Dropbox(new DropboxApp(Yii::$app->params['db_app_key'], Yii::$app->params['db_app_secret']));
+        $authUrl = $dropbox->getAuthHelper()->getAuthUrl('http://localhost:8080/oauth2callback');
 
         return $this->render('index', [
             'authUrl'    => $authUrl,
@@ -72,5 +61,21 @@ class SiteController extends Controller
                 'query' => Wallpaper::find(),
             ]),
         ]);
+    }
+
+    public function actionAuth($code, $state)
+    {
+        Yii::$app->session->open();
+
+        $dropbox     = new Dropbox(new DropboxApp(Yii::$app->params['db_app_key'], Yii::$app->params['db_app_secret']));
+        $accessToken = $dropbox->getAuthHelper()
+                               ->getAccessToken($code, $state, 'http://localhost:8080/oauth2callback')
+                               ->getToken();
+
+        if ($user = User::authByDropbox($accessToken)) {
+            Yii::$app->user->login($user);
+        }
+
+        return $this->goHome();
     }
 }
