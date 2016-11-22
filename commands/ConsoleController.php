@@ -30,7 +30,7 @@ class ConsoleController extends Controller
         $wh         = new Wallhaven(Yii::$app->params['wallhaven_user'], Yii::$app->params['wallhaven_password']);
         $wallpapers = $wh->filter()
                          ->categories(Category::GENERAL | Category::PEOPLE)
-                         ->purity(Purity::SFW | Purity::SKETCHY)
+                         ->purity(Purity::SFW)
                          ->sorting(Sorting::RANDOM)
                          ->resolutions(["1920x1080", "2560x1440"])
                          ->ratios(["16x9"])
